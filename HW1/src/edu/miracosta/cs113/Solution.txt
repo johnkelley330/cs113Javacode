@@ -1,0 +1,2 @@
+Every time the assistant jack tells us which answer is wrong we increment it by one(we go down are trying the next item for that type).
+The max number of times it runs is 20 times.
