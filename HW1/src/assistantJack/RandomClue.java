@@ -1,7 +1,4 @@
-package edu.miracosta.cs113;
-
-import assistantJack.AssistantJack;
-import assistantJack.Theory;
+package assistantJack;
 
 /**
  * RandomClue.java : Random solver for the Clue problem
