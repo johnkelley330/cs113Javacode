@@ -1,0 +1,8 @@
+i. Because there is one for loop that runs n times. The big O is O(n)
+answer = O(n)
+ii. Because there are nested for loops that both run n. Time big O is n^2
+answer = O(n^2)
+iii. Because there are nested loop and the inner loop still executes n time. The big O is n^2
+answer = O(n^2)
+iv. The nested loops each run n^2 times. The big O is n^4
+answer = O(n^4)
