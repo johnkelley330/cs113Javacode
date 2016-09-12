@@ -1,6 +1,12 @@
 package diverForDirectoryEntryMethods;
+
 import java.util.ArrayList;
 
+/**
+ * This class uses the DirectoryEntry class method to create a directory and the addOrChangeEntry and removeEntry methods.
+ * @author John Kelley
+ * @version 1.0
+ */
 public class TheDirectory {
 	
 	ArrayList<DirectoryEntry> directory = new ArrayList<DirectoryEntry>();

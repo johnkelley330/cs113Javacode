@@ -1,5 +1,10 @@
 package diverForDirectoryEntryMethods;
 
+/**
+ * This class contains the tools to make an entry to the directory.
+ * @author John Kelley
+ * @version 1.0
+ */
 public class DirectoryEntry
 {
 	String name;

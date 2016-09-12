@@ -1,5 +1,10 @@
 package diverForDirectoryEntryMethods;
 
+/**
+ * This class is made to test the TheDirectory classes methods.
+ * @author John Kelley
+ * @version 1.0
+ */
 public class TheDirectoryDirver {
 
 	public static void main(String[] args)
