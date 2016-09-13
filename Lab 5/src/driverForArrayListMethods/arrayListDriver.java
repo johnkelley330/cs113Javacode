@@ -22,8 +22,10 @@ public class arrayListDriver
 		orders.add("Fries");
 		System.out.println(orders.toString());
 		replace(orders, "Fries", "Sold out");
+		System.out.println("//Replaces fries with sold out.");
 		System.out.println(orders.toString());
 		delete(orders, "Coffee");
+		System.out.println("//Removes the coffee form the list.");
 		System.out.println(orders.toString());
 	}
 
@@ -45,7 +47,7 @@ public class arrayListDriver
 	}
 	
 	/**
-	 * 
+	 * Removes each occurrence of the specified string.
 	 * @param aList  The arrayList to be considered
 	 * @param target  The item to be removed.
 	 */
