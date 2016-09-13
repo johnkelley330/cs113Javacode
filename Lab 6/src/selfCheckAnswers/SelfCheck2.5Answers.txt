@@ -1,0 +1,16 @@
+1. O(n) because it searches through the linkedList for the index.
+2. O(n) because it searches through the linkedList for the index.
+3. O(1) if there is a tail reference otherwise O(n).
+4. int sum = 0;
+   Node<Integer> nodeRef = head.next;
+   while(nodeRef != null)
+   {
+       int next = nodeRef.data;
+       sum += next;
+       nodeRef = nodeRef.next;
+   }
+5.
+	a. Add a the node "Shakira" as the first node of the list.
+	b. Removes the "Dick" node.
+	c. Add "Tamika" to the end of the LinkedList.
+	d. Replaces "Harry" with "Sally". Adds "Harry" After "Sally"
