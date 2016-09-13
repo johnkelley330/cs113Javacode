@@ -3,7 +3,7 @@ package singleLinkedListClass;
 public class SingleLinkedList<E>
 {
 	private Node<E> head = null;
-	private int size = 0;
+	private int size;
 	
 	/**
 	 * Add an item to the front of the list.
@@ -15,6 +15,7 @@ public class SingleLinkedList<E>
 		size++;
 	}
 	
+
 	/**
 	 * Add after a given node.
 	 * @param node  The node preceding the new item
@@ -199,25 +200,35 @@ public class SingleLinkedList<E>
 		}
 		return oldData;
 	}
-	private static class Node<E> {
-		 private E data;
-		 private Node<E> next;
-		 
-		 /** Creates a new node with a null next field
-		 @param data The data stored
+	
+	/**
+	 * This class contains the data and next reference for the SingleLinkedList class.
+	 * @param <E>
+	 */
+	private static class Node<E>
+	{
+		private E data;
+		private Node<E> next;
+		
+		/** Creates a new node with a null next field
+		 * @param data The data stored
 		 */
-		 private Node(E data) {
-		 this.data = data;
-		 this.next = null;
-		 }
+		private Node(E data)
+		{
+			this.data = data;
+			this.next = null;
+		}
 		 
-		 /** Creates a new node that references another node
-		 @param data The data stored
-		 @param nodeRef The node referenced by new node
+		/** Creates a new node that references another node
+		 * @param data The data stored
+		 * @param nodeRef The node referenced by new node
 		 */
-		 private Node(E data, Node<E> nodeRef) {
-		 this.data = data;
-		 this.next = nodeRef;
-		 }
+		private Node(E data, Node<E> nodeRef)
+		{
+			this.data = data;
+			this.next = nodeRef;
+		}
 	}
 }
+
+
