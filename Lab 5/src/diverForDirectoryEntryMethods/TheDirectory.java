@@ -7,9 +7,10 @@ import java.util.ArrayList;
  * @author John Kelley
  * @version 1.0
  */
-public class TheDirectory {
+public class TheDirectory{
 	
 	ArrayList<DirectoryEntry> directory = new ArrayList<DirectoryEntry>();
+	int size = 0;
 	
 	/**
 	 * Default constructor.
@@ -48,21 +49,18 @@ public class TheDirectory {
 	 */
 	public String addOrChangeEntry(String name, String number)
 	{
-		boolean nameFound = false;
 		String temp = null;
-		for(int i = 0; i < directory.size() || nameFound == true; i++)
+		int index = directory.indexOf(new DirectoryEntry(name, ""));
+		if(index != -1)
 		{
-			if(name == directory.get(i).getName())
-			{
-				nameFound = true;
-				temp = directory.get(i).getNumber();
-				directory.get(i).setNumber(number);
-			}
+			temp = directory.get(index).getName();
+			directory.set(index, new DirectoryEntry(name, number));
 		}
-		if(nameFound == false)
+		else
 		{
 			directory.add(new DirectoryEntry(name, number));
 		}
+		++size;
 		return temp;
 	}
 	
@@ -79,7 +77,31 @@ public class TheDirectory {
 		{
 			temp = directory.get(index);
 			directory.remove(index);
+			--size;
 		}
 		return temp;
+	}
+	
+	/**
+	 * Gets the directory entry at the index.
+	 * @param index  The index to find the directory entry
+	 * @return  The found directory entry, null, otherwise.
+	 */
+	public DirectoryEntry get(int index)
+	{
+		if(index < 0 || index >= directory.size())
+		{
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		return directory.get(index);
+	}
+	
+	/**
+	 * Returns the size of the directory arrayList.
+	 * @return  The size of the directory arrayList.
+	 */
+	public int getSize()
+	{
+		return size;
 	}
 }

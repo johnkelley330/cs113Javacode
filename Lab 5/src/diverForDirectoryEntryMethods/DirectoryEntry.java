@@ -29,6 +29,10 @@ public class DirectoryEntry
 		setAll(name, number);
 	}
 	
+	/**
+	 * Returns the string representation of the DirectoryEntry object.
+	 * @return  The string representation of the DirectoryEntry object.
+	 */
 	public String toString()
 	{
 		return "[" + name + ", " + number + "]";
