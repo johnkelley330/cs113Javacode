@@ -1,6 +1,10 @@
 package doubleLinkedListDataStructure;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 /**
  * DoubleLinkedList.java: contains the method and variables necessary to create
@@ -41,60 +45,39 @@ public class DoubleLinkedList<E> implements List<E> {
 	/**
 	 * Add an item at the specified index.
 	 * 
-	 * @param The
-	 *            index at which the object is to be inserted
-	 * @param The
-	 *            object to be inserted
+	 * @param index
+	 *            The index at which the object is to be inserted
+	 * @param obj
+	 *            The object to be inserted
 	 * @throws IndexOutOfBoundsException
 	 *             if the index is out of range (i < 0 || i > size())
 	 */
 	public void add(int index, E obj) {
 		listIterator(index).add(obj);
-		System.out.println("1");
 	}
 
 	/**
 	 * Add the object to the end of the list and returns true.
 	 * 
-	 * @param The
-	 *            object to be added at the end of the list.
+	 * @param obj
+	 *            The object to be added at the end of the list.
 	 * @return Always returns true.
 	 */
 	public boolean add(E obj) {
 		listIterator(size).add(obj);
-		System.out.println("2");
+
 		return true;
 	}
 
 	/**
 	 * Get the element at position index.
 	 * 
-	 * @param The
-	 *            position of item to be retrieved
+	 * @param index
+	 *            The position of item to be retrieved
 	 * @return The item at index
 	 */
 	public E get(int index) {
 		return listIterator(index).next();
-	}
-
-	/**
-	 * Adds to the front of the list.
-	 * 
-	 * @param The
-	 *            object to be added.
-	 */
-	private void addFirst(E item) {
-		add(0, item);
-	}
-
-	/**
-	 * Adds to the last position.
-	 * 
-	 * @param The
-	 *            object to be added.
-	 */
-	private void addLast(E item) {
-		add(size, item);
 	}
 
 	/**
@@ -103,6 +86,9 @@ public class DoubleLinkedList<E> implements List<E> {
 	 * @return The first item of the list.
 	 */
 	public E getFirst() {
+		if (head == null) {
+			throw new NoSuchElementException();
+		}
 		return head.data;
 	}
 
@@ -112,6 +98,9 @@ public class DoubleLinkedList<E> implements List<E> {
 	 * @return The last item of the list
 	 */
 	public E getLast() {
+		if (tail == null) {
+			throw new NoSuchElementException();
+		}
 		return tail.data;
 	}
 
@@ -135,12 +124,76 @@ public class DoubleLinkedList<E> implements List<E> {
 	}
 
 	/**
-	 * Creates a list iterator and the index for a duble linked list.
+	 * Creates a list iterator and the index for a double linked list.
 	 * 
 	 * @return The new list iterator.
 	 */
 	public ListIterator<E> listIterator(int index) {
 		return new DoubleListIterator(index);
+	}
+
+	/**
+	 * Compares the Object o to the other data for equality. I have suppressed
+	 * the cast unchecked because I use the instanceof operator.
+	 * 
+	 * @param obj
+	 *            The object the list is compared to.
+	 */
+	@SuppressWarnings("unchecked")
+	public boolean equals(Object obj) {
+		if (obj instanceof DoubleLinkedList) {
+			DoubleLinkedList<E> comparedList = (DoubleLinkedList<E>) obj;
+			if (comparedList.size() != size) {
+				return false;
+			} else if (size == 0 && comparedList.size() == 0) {
+				return true;
+			} else {
+				int i = 0;
+				for (; i < size && comparedList.get(i) == this.get(i); i++) {
+				}
+				if (i == size) {
+					return true;
+				}
+				return false;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Removes all elements from the list.
+	 */
+	public void clear() {
+		head = null;
+		size = 0;
+	}
+
+	/**
+	 * Returns true if size equals 0.
+	 * @return  If size is zero.
+	 */
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	/**
+	 * Adds to the front of the list.
+	 * 
+	 * @param item
+	 *            The object to be added.
+	 */
+	private void addFirst(E item) {
+		add(0, item);
+	}
+
+	/**
+	 * Adds to the last position.
+	 * 
+	 * @param item
+	 *            The object to be added.
+	 */
+	private void addLast(E item) {
+		add(size, item);
 	}
 
 	public boolean addAll(Collection<? extends E> c) {
@@ -151,18 +204,11 @@ public class DoubleLinkedList<E> implements List<E> {
 		return false;
 	}
 
-	public void clear() {
-	}
-
 	public boolean contains(Object o) {
 		return false;
 	}
 
 	public boolean containsAll(Collection<?> c) {
-		return false;
-	}
-
-	public boolean equals(Object o) {
 		return false;
 	}
 
@@ -172,10 +218,6 @@ public class DoubleLinkedList<E> implements List<E> {
 
 	public int indexOf(Object o) {
 		return -1;
-	}
-
-	public boolean isEmpty() {
-		return false;
 	}
 
 	public Iterator<E> iterator() {
@@ -233,8 +275,8 @@ public class DoubleLinkedList<E> implements List<E> {
 		/**
 		 * Creates a new node with a null next field
 		 * 
-		 * @param The
-		 *            data stored
+		 * @param data
+		 *            The data stored
 		 */
 		private Node(E data) {
 			this.data = data;
@@ -263,7 +305,7 @@ public class DoubleLinkedList<E> implements List<E> {
 				nextItem = null;
 			} else {
 				nextItem = head;
-				for (int i = 0; i < index; index++) {
+				for (int i = 0; i < index; i++) {
 					nextItem = nextItem.next;
 				}
 			}
@@ -324,8 +366,8 @@ public class DoubleLinkedList<E> implements List<E> {
 		/**
 		 * Adds the object
 		 * 
-		 * @param The
-		 *            object to be added.
+		 * @param obj
+		 *            The object to be added.
 		 */
 		public void add(E obj) {
 			if (head == null) {
