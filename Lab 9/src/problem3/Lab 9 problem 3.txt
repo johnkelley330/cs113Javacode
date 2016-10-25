@@ -1,0 +1,12 @@
+Tree on the left:
+	The height is 3.
+	It is not full.
+	It is complete.
+	?
+	?
+Tree on the right:
+	The height is 3
+	It is not a full tree.
+	It is a complete tree.
+	?
+	?
