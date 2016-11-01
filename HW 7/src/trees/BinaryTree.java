@@ -1,8 +1,15 @@
-package binaryTree;
+package trees;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.Scanner;
 
+/**
+ * This is a basic tree class with the basic methods to operate a tree.
+ * 
+ * @author John Kelley
+ *
+ * @param <E>
+ */
 public class BinaryTree<E> {
 	protected static class Node<E> implements Serializable {
 
@@ -10,12 +17,22 @@ public class BinaryTree<E> {
 		protected Node<E> left;
 		protected Node<E> right;
 
+		/**
+		 * Constructor for the node object and initializes all variables
+		 * 
+		 * @param data
+		 */
 		public Node(E data) {
 			this.data = data;
 			left = null;
 			right = null;
 		}
 
+		/**
+		 * Returns the data inside the node as a string.
+		 * 
+		 * @return the data inside the node as a string
+		 */
 		public String toString() {
 			return data.toString();
 		}
@@ -24,14 +41,14 @@ public class BinaryTree<E> {
 	protected Node<E> root;
 
 	/**
-	 * Constructs an empty binary tree.
+	 * Constructor for an empty binary tree.
 	 */
 	public BinaryTree() {
 		root = null;
 	}
 
 	/**
-	 * Constructs a binary tree with the given node as the root.
+	 * Constructor for a binary tree with the given node as the root.
 	 * 
 	 * @param root
 	 *            The root of the tree
@@ -41,7 +58,7 @@ public class BinaryTree<E> {
 	}
 
 	/**
-	 * Constructs a binary tree with the given data at the root and the two
+	 * Constructor for a binary tree with the given data at the root and the two
 	 * given subtrees.
 	 * 
 	 * @param data
