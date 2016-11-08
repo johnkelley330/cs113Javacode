@@ -1,0 +1,26 @@
+we are showing that you can not add duplicates
+
+1. creates a new set s
+2. adds "hello" to set s
+3. adds "bye" to set s
+4. because all elements in s already exists in s
+
+we are showing the subset method is not commutative.
+
+5. creates a new set t
+6. add "123" to set t
+7. adds all elements of t to a that do not already exist in s
+8. prints false because s is not a sub set of t
+9. prints true because t is a sub set of s
+
+shows that you have to add an element for the set to contain it
+
+10. prints false because "ace" is not contained in s
+
+If you call the retain all on the two sets on each other it means that the two sets contain the exact same elements
+
+11. prints true because "123" is contained in s
+12. because "123" is the only overlapping object from s and t all other elements are removed
+13. prints true because s contains "123"
+14. since "123" is the only shared element in t and s all other elements are removed
+15.prints true because "123" is contained in t.
