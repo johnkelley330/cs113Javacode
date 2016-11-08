@@ -1,0 +1,14 @@
+public Map<String, Integer> buildWordCounts(Scanner scan){
+	int num;
+	map = new Map<String, Integer>;
+	while(scan.hasNext()){
+		word = scan.next();
+		if(map.cotains(word)){
+			num = map.remove(word) + 1;
+			map.put(word, num);
+		} else{
+			map.put(word, 1);
+		}
+	}
+	return map;
+}

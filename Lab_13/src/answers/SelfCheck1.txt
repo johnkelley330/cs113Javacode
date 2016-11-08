@@ -1,0 +1,4 @@
+a. ISBN
+b. uniform number and team
+c. model number
+d. course ID and section number

@@ -1,0 +1,11 @@
+int num;
+aMap = new Map<String, Integer>;
+while(scan.hasNext()){
+	word = scan.next();
+	if(aMap.cotains(word)){
+		num = aMap.remove(word) + 1;
+		aMap.put(word, num);
+	} else{
+		aMap.put(word, 1);
+	}
+}
