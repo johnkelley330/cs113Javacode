@@ -24,14 +24,17 @@ public abstract class Heap<E> {
 	 *            The left object to be compared.
 	 * @param right
 	 *            The right object to be compared.
-	 * @return  It returns -1 if left < right, 0 if left == right, and 1 if left > right.
+	 * @return It returns -1 if left < right, 0 if left == right, and 1 if left
+	 *         > right.
 	 */
 	protected abstract int compare(E left, E right);
 
 	/**
+	 * Inserts the data at the end of the heap and then bubbles it up.
 	 * 
 	 * @param newData
-	 * @return
+	 *            The new data to be inserted.
+	 * @return True because it will always insert it.
 	 */
 	public boolean insert(E newData) {
 		dataList.add(newData);
@@ -45,6 +48,12 @@ public abstract class Heap<E> {
 		return true;
 	}
 
+	/**
+	 * Removes the root of the heap. It then moves the last item in the heap to
+	 * the root and bubbles it down.
+	 * 
+	 * @return The root's data.
+	 */
 	public E remove() {
 		if (isEmpty()) {
 			return null;
@@ -74,14 +83,28 @@ public abstract class Heap<E> {
 		return root;
 	}
 
+	/**
+	 * Returns true if the heap is empty.
+	 * 
+	 * @return True if the heap is empty.
+	 */
 	public boolean isEmpty() {
 		return dataList.isEmpty();
 	}
 
+	/**
+	 * Returns the string version of the heap.
+	 * @return  The string version of the heap.
+	 */
 	public String toString() {
 		return dataList.toString();
 	}
 
+	/**
+	 * Swaps the items at the two indexes.
+	 * @param index1  The index of the first object to be swapped.
+	 * @param index2  The index of the second object to be swapped.
+	 */
 	private void swap(int index1, int index2) {
 		E temp = dataList.get(index1);
 		dataList.set(index1, dataList.get(index2));
