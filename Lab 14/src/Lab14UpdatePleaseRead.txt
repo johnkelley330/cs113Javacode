@@ -1,0 +1,4 @@
+Programing project 1 line 9 correction
+while(table[index].getKey != key && table[index] != null){
+
+I needed to getKey
