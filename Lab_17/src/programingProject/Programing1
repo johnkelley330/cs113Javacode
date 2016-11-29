@@ -1,0 +1,32 @@
+    /**
+	 * Rebalances the tree in all cases of the right is out of balance. Also
+	 * resets all the balances of the nodes to the current balance.
+	 * 
+	 * @param localRoot
+	 *            The root to perform the rebalancing on.
+	 * @return The new root after the rebalancing
+	 */
+	private AVLNode<E> rebalanceRight(AVLNode<E> localRoot) {
+		AVLNode<E> rightChild = (AVLNode<E>) localRoot.right;
+		if (rightChild.balance < AVLNode.BALANCED) {
+			AVLNode<E> rightLeftChild = (AVLNode<E>) rightChild.left;
+			if (rightLeftChild.balance > AVLNode.BALANCED) {
+				rightChild.balance = AVLNode.BALANCED;
+				rightLeftChild.balance = AVLNode.BALANCED;
+				localRoot.balance = AVLNode.LEFT_HEAVY;
+			} else if (rightLeftChild.balance < AVLNode.BALANCED) {
+				rightChild.balance = AVLNode.RIGHT_HEAVY;
+				rightLeftChild.balance = AVLNode.BALANCED;
+				localRoot.balance = AVLNode.BALANCED;
+
+			} else {
+				rightChild.balance = AVLNode.BALANCED;
+				localRoot.balance = AVLNode.BALANCED;
+			}
+			localRoot.right = rotateRight(rightChild);
+		} else {
+			rightChild.balance = AVLNode.BALANCED;
+			localRoot.balance = AVLNode.BALANCED;
+		}
+		return (AVLNode<E>) rotateLeft(localRoot);
+	}
