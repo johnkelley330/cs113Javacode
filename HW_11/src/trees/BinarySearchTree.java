@@ -1,10 +1,22 @@
 package trees;
 
+/**
+ * The Binary Search Tree for comparasion with the AVL tree. since we do not
+ * need removals for the comparison I did not implement a remove method
+ * 
+ * @author W7258645
+ *
+ * @param <E>
+ *            The data to be stored
+ */
 public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
 
 	protected boolean addReturn;
 	protected E deleteReturn;
 
+	/**
+	 * Constructs a new binary tree and sets the root to null.
+	 */
 	public BinarySearchTree() {
 		root = null;
 	}
@@ -22,14 +34,15 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
 		root = add(root, item);
 		return addReturn;
 	}
-	
+
 	/**
-	 * Non recursive find method. Finds the target and returns it. If the target is not in the tree it returns null.
+	 * Non recursive find method. Finds the target and returns it. If the target
+	 * is not in the tree it returns null.
 	 * 
 	 * @param target
 	 *            The Comparable object being sought
 	 */
-	public E find(E target){
+	public E find(E target) {
 		return find(root, target);
 	}
 
@@ -62,24 +75,23 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
 	}
 
 	/**
-	 * Recursive find method. Finds the target and returns it. If the target is not in the tree it returns null.
+	 * Recursive find method. Finds the target and returns it. If the target is
+	 * not in the tree it returns null.
 	 * 
 	 * @param target
 	 *            The Comparable object being sought
 	 * @return The object, if found, otherwise null
 	 */
-	private E find(Node<E> localRoot, E target){
-		if(localRoot == null){
+	private E find(Node<E> localRoot, E target) {
+		if (localRoot == null) {
 			return null;
 		}
 		int compResult = target.compareTo(localRoot.data);
-		if(compResult == 0){
+		if (compResult == 0) {
 			return localRoot.data;
-		}
-		else if(compResult < 0){
+		} else if (compResult < 0) {
 			return find(localRoot.left, target);
-		}
-		else{
+		} else {
 			return find(localRoot.right, target);
 		}
 	}

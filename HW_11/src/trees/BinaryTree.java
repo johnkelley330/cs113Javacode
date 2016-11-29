@@ -137,13 +137,7 @@ public class BinaryTree<E> {
 		if (node == null) {
 			sb.append("null\n");
 		} else {
-			sb.append(node.toString() + "  depth: " + depth + "\n");
-			if(depth > 20){
-				System.out.println(sb.toString());
-				while(true){
-					
-				}
-			}
+			sb.append(node.toString() + "\n");
 			preOrderTraverse(node.left, depth + 1, sb);
 			preOrderTraverse(node.right, depth + 1, sb);
 		}

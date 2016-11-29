@@ -156,7 +156,7 @@ public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
 			AVLNode<E> rightLeftChild = (AVLNode<E>) rightChild.left;
 			if (rightLeftChild.balance > AVLNode.BALANCED) {
 				rightChild.balance = AVLNode.BALANCED;
-				rightChild.balance = AVLNode.BALANCED;
+				rightLeftChild.balance = AVLNode.BALANCED;
 				localRoot.balance = AVLNode.LEFT_HEAVY;
 			} else if (rightLeftChild.balance < AVLNode.BALANCED) {
 				rightChild.balance = AVLNode.RIGHT_HEAVY;
@@ -167,7 +167,7 @@ public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
 				rightChild.balance = AVLNode.BALANCED;
 				localRoot.balance = AVLNode.BALANCED;
 			}
-			localRoot.left = rotateRight(rightChild);
+			localRoot.right = rotateRight(rightChild);
 		} else {
 			rightChild.balance = AVLNode.BALANCED;
 			localRoot.balance = AVLNode.BALANCED;
